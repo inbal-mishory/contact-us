@@ -7,10 +7,12 @@
 }
 
 :root {
-  --colorWhite: #ffffff;
+  --white: #ffffff;
   --darkBlue: #482CE6FF;
   --darkPink: #480022FF;
-  --pink: #FF007A;
+  --pink: rgba(255, 0, 122, 1);
+  --lightPink: rgba(255, 0, 122, .6);
+  --veryLightPink: rgba(255, 0, 122, .24);
   --lightGray: rgba(0, 0, 0, 0.24);
   --darkGray: rgba(0, 0, 0, 0.60);
 }
@@ -50,12 +52,12 @@ main {
   padding: 16rem 0 9.6rem 18.8rem;
 
   h2 {
-    color: var(--colorWhite);
+    color: var(--white);
     font-size: 5.4rem;
   }
   
   p {
-    color: var(--colorWhite);
+    color: var(--white);
     font-size: 2.4rem;
     font-weight: 200;
     padding-inline-end: 4rem;
@@ -79,7 +81,7 @@ main {
 }
 
 form {
-  background-color: var(--colorWhite);
+  background-color: var(--white);
   width: 56.5rem;
   height: 74.5rem;
   border-radius: 2.4rem;
@@ -108,13 +110,14 @@ input {
 input[type=radio] {
   accent-color: inherit;
   padding: 0;
-  width: unset;
-  height: unset;
+  width: 18px;
+  height: 18px;
 }
 
 .radio-container {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   font-size: 1.7rem;
   font-weight: 500;
   color:var(--darkGray);
@@ -148,10 +151,137 @@ fieldset {
 
 .submit {
   background: var(--pink);
-  color:var(--colorWhite);
+  color:var(--white);
   font-size: 2rem;
   border-radius: 4.8rem;
   border: none;
   height: 5.4rem;
   align-self: flex-end;
+}
+
+/* Dot SVG and message */
+
+.dot-and-message {
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.floating-message-container {
+  position:relative;
+  height: 134px;
+  width: 483px;
+}
+
+.floating-message {
+  background: var(--pink);
+  border-radius: 16px;
+  padding: 1.6rem;
+  position: absolute;
+  width: 483px;
+
+  p {
+    font-size: 2rem;
+  }
+}
+
+p.company-name {
+  font-weight: 500;
+}
+
+.arrow-down {
+  width: 0px;
+  height: 0px;
+  border-left: 22px solid transparent;
+  border-right: 22px solid transparent;
+  border-top: 42px solid var(--pink);
+  position: absolute;
+  bottom: 0;
+  left: 220px;
+}
+
+.dot-container {
+  display:flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.svg-area {
+	display: block;
+}
+
+#core {
+	fill: var(--pink);
+	animation: pulse1 1.4s ease-in-out infinite;
+}
+
+#radar  {
+	fill: var(--lightPink);
+	animation: pulse2 1.4s ease-in-out infinite;
+}
+
+#radar2  {
+	fill: var(--lightPink);
+	animation: pulse3 1.6s ease-in-out infinite;
+}
+
+.message {
+  background: var(--pink);
+  color: var(--white)
+}
+
+@keyframes pulse1 {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+
+	30% {
+		opacity: 1;
+		transform: scale(1.5);
+	}
+
+	60% {
+		opacity: 1;
+		transform: scale(2);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(2);
+	}
+}
+
+@keyframes pulse2 {
+	0% {
+		transform: scale(1, 1);
+		opacity: 0;
+	}
+
+	50% {
+	    opacity: 1;
+	}
+
+	100% {
+	    transform: scale(6, 6);
+	    opacity: 0;
+  }
+}
+
+@keyframes pulse3 {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  50% {
+      opacity: 1;
+  }
+
+  100% {
+      transform: scale(8);
+      opacity: 0;
+    }
 }
