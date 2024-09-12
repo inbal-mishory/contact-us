@@ -23,12 +23,11 @@ html, body {
 }
 
 body {
-  background-size: 845px 982px;
-  background-position: 0 0;
-  background: url('assets/background.png') no-repeat, linear-gradient(180deg, var(--darkBlue) 0%, var(--darkPink) 100%);
+  /* background-size: 772px 976px;
+  background-position: 0 0; */
+  background: linear-gradient(180deg, var(--darkBlue) 0%, var(--darkPink) 100%);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  
   min-height: 100vh;
   accent-color: var(--darkBlue);
 }
@@ -42,14 +41,17 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 main {
+  background: url('assets/background1.png') no-repeat;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 772px 1fr;
   height: 100vh;
+  min-height: 1080px;
+  width: 1440px;
 }
 
 .text-hook {
   width: 100%;
-  padding: 16rem 0 9.6rem 18.8rem;
+  padding: 16rem 0 9.6rem 11.91%;
 
   h2 {
     color: var(--white);
@@ -66,7 +68,6 @@ main {
 
 .form-container {
   padding-top: 16.8rem;
-  padding-inline-start: 6rem;
 
   h4 {
     font-size: 2rem;
@@ -167,12 +168,22 @@ fieldset {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 14rem;
+  width: 565px;
 }
 
 .floating-message-container {
   position:relative;
   height: 134px;
   width: 483px;
+  opacity: 0;
+  transition: all .75s ease-in-out;
+}
+
+.dot-and-message:hover {
+  .floating-message-container {
+    opacity: 1;
+  }
 }
 
 .floating-message {
